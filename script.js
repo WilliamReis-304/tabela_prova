@@ -1,18 +1,17 @@
-let alunos = Number(prompt("Digite a quantidade de alunos:"))
-let maior = 0
-let menor = 9999999999999
-let soma =0
-
-for (let i=0 ; i<alunos ; i++){
-    let nota = Number(prompt("Digite a nota do aluno:"))
-    if (maior < nota){
-        maior = nota
-    }
-    if (menor > nota){
-        menor = nota
-    }
-    soma += nota
+let numero = Number(prompt("Digite um numero POSITIVO:\n\nNota:Numeros negativos seráo convertidos para positivos"))
+let fibonacci = 0
+if (Math.sign(numero)== -1 | Math.sign(numero)== -0){
+    numero = -1*numero
 }
 
-console.log(`A maior nota da turma é : ${maior}\nA menor nota da turma é : ${menor}\n
-A média da turma é : ${soma/alunos}\n`)
+for (let i=0;i<numero;i++){
+    fatorial = numero-i
+    console.log(numero*fatorial)
+    if (i<=1){
+        fibonacci = i
+    } else{
+        fibonacci = (i-1) + (i-2)
+    }
+}
+
+console.log(fibonacci)
