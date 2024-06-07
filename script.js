@@ -1,39 +1,25 @@
-let tarefas = ["lavar louça","sair com o cachorro"]
-let valido = true
-console.log(tarefas)
+function fazerConta(){
+    let altura = document.getElementById("altura").value
+    let peso = document.getElementById("peso").value
+    let resultado = document.getElementById("resultado")
+    let imc = peso/((altura/100)**2)
+    console.log(imc)
 
-while (true){
-    let escolha = prompt("Digite qual opção deseja\n1-Adicionar tarefa\n2-Remover tarefa\n3-Atualizar tarefa")
-    if (escolha == 1){
-        let adicionar = prompt("Digite qual tarefa adicionar")
-        tarefas.push(adicionar)
-    }else if (escolha == 2){
-        let remover = prompt("Digite uma tarefa para remover")
-        for(let i=0;i<tarefas.length;i++){
-            if (remover == tarefas[i]){
-                tarefas.splice(i,1)
-                break
-            }else if(tarefas.length == i){
-                alert("Tarefa não encontrada")
-                break
-            }
-        }
-    }else if (escolha == 3){
-        let atualizar = prompt("Digite qual tarefa deseja atualizar")
-        for(let i=0;i<tarefas.length;i++){
-            if (atualizar == tarefas[i]){
-                let nova = prompt("Digite a nova tarefa")
-                tarefas[i] = nova
-                break
-            }else if(tarefas.length == i){
-                alert("Tarefa não encontrada")
-                break
-            }
-        }
-    }
-    console.log(tarefas)
-    let loop = prompt("Deseja modificar mais algo?\nSim\nNão")
-    if (loop == "Não"){
-        break
+    if(imc<16){
+        resultado.innerText = "Baixo peso muito grave"
+    }else if(imc>=16 & imc<17){
+        resultado.innerText ="Baixo peso grave"
+    }else if(imc>=17 & imc<18.5){
+        resultado.innerText ="Baixo peso"
+    }else if(imc>=18.5 & imc<25){
+        resultado.innerText ="Peso normal"
+    }else if(imc>=25 & imc<30){
+        resultado.innerText ="Sobrepeso"
+    }else if(imc>=30 & imc<35){
+        resultado.innerText ="Obesidade grau I"
+    }else if(imc>=35 & imc<40){
+        resultado.innerText ="Obesidade grau II"
+    }else if(imc>=40){
+        resultado.innerText ="Obesidade grau III"
     }
 }
