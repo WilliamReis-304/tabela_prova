@@ -1,17 +1,39 @@
-let numero = Number(prompt("Digite um numero POSITIVO:\n\nNota:Numeros negativos seráo convertidos para positivos"))
-let fibonacci = 0
-if (Math.sign(numero)== -1 | Math.sign(numero)== -0){
-    numero = -1*numero
-}
+let tarefas = ["lavar louça","sair com o cachorro"]
+let valido = true
+console.log(tarefas)
 
-for (let i=0;i<numero;i++){
-    fatorial = numero-i
-    console.log(numero*fatorial)
-    if (i<=1){
-        fibonacci = i
-    } else{
-        fibonacci = (i-1) + (i-2)
+while (true){
+    let escolha = prompt("Digite qual opção deseja\n1-Adicionar tarefa\n2-Remover tarefa\n3-Atualizar tarefa")
+    if (escolha == 1){
+        let adicionar = prompt("Digite qual tarefa adicionar")
+        tarefas.push(adicionar)
+    }else if (escolha == 2){
+        let remover = prompt("Digite uma tarefa para remover")
+        for(let i=0;i<tarefas.length;i++){
+            if (remover == tarefas[i]){
+                tarefas.splice(i,1)
+                break
+            }else if(tarefas.length == i){
+                alert("Tarefa não encontrada")
+                break
+            }
+        }
+    }else if (escolha == 3){
+        let atualizar = prompt("Digite qual tarefa deseja atualizar")
+        for(let i=0;i<tarefas.length;i++){
+            if (atualizar == tarefas[i]){
+                let nova = prompt("Digite a nova tarefa")
+                tarefas[i] = nova
+                break
+            }else if(tarefas.length == i){
+                alert("Tarefa não encontrada")
+                break
+            }
+        }
+    }
+    console.log(tarefas)
+    let loop = prompt("Deseja modificar mais algo?\nSim\nNão")
+    if (loop == "Não"){
+        break
     }
 }
-
-console.log(fibonacci)
